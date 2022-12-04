@@ -4,22 +4,24 @@ with open("day3/input.txt") as f:
 rucksacks = [r.strip() for r in rucksacks]
 
 order = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#Part 1
 total = 0
+for r in rucksacks:
+    l = int(len(r)/2)
+    c1, c2 = r[:l], r[l:]
+    common = None
+    for c in c1:
+        if c in c2:
+            common = c
+            prio = order.index(common) + 1
+            total += prio
+            break
 
-# for r in rucksacks:
-#     l = int(len(r)/2)
-#     c1, c2 = r[:l], r[l:]
-#     common = None
-#     for c in c1:
-#         if c in c2:
-#             common = c
-#             prio = order.index(common) + 1
-#             total += prio
-#             break
+print(total)
 
-
-# print(total)
-
+#Part 2
+total = 0
 numgroups = int(len(rucksacks)/3)
 for g in range(numgroups):
     i = 3*g
@@ -33,3 +35,6 @@ for g in range(numgroups):
             break
 
 print(total)
+
+
+
