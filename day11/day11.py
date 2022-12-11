@@ -40,10 +40,10 @@ monkeylist = {0: Monkey([59, 74, 65, 86], lambda old: old * 19, 7, 6, 2),
               6: Monkey([69, 82, 97, 93, 82, 84, 58, 63], lambda old: old + 5, 5, 5, 7),
               7: Monkey([81, 78, 82, 76, 79, 80], lambda old: old + 3, 17, 3, 4),
 
-              0: Monkey([79, 98], lambda old: old * 19, 23, 2, 3),
-              1: Monkey([54, 65, 75, 74], lambda old: old + 6, 19, 2, 0),
-              2: Monkey([79, 60, 97], lambda old: old * old, 13, 1, 3),
-              3: Monkey([74], lambda old: old + 3, 17, 0, 1),
+            #   0: Monkey([79, 98], lambda old: old * 19, 23, 2, 3),
+            #   1: Monkey([54, 65, 75, 74], lambda old: old + 6, 19, 2, 0),
+            #   2: Monkey([79, 60, 97], lambda old: old * old, 13, 1, 3),
+            #   3: Monkey([74], lambda old: old + 3, 17, 0, 1),
     }
 
 lcm = 1
