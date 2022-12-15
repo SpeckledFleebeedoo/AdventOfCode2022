@@ -28,8 +28,22 @@ for coord in coordinates:
     if sy + radius > maxy:
         maxy = sy + radius
 
-grid = np.zeros((maxy-miny, maxx-minx))
-# center = (8,8) #y, x
-# radius = 6
-# mark_diamond(grid, center, radius)
+linenum = 2000000
+line = np.zeros(maxx-minx)
+for coord in coordinates:
+    sx, sy, bx, by = coord
+    radius = abs(sx - bx) + abs(sy - by)
+    verticaldist = abs(sy-linenum)
+    horizontaldist = radius - verticaldist
+    if horizontaldist > 0:
+        line[sx-horizontaldist-minx:sx+horizontaldist+1-minx] = 1
+        if sy == linenum:
+            line[sx-minx] = 2
+        if by == linenum:
+            line[bx-minx] = 3
+        
+
+    
+print(np.count_nonzero(line==1))
+
 pass
