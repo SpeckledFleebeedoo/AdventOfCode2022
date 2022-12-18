@@ -6,7 +6,7 @@ with open("day17/input.txt") as f:
 
 #Define sequence of rocks
 rocks = [
-    np.array([1, 1, 1, 1]),
+    np.array([[1, 1, 1, 1]]),
     np.array([[0,1,0],
               [1,1,1],
               [0,1,0]]),
@@ -31,19 +31,13 @@ heights = []
 
 for r in range(2022):
     rock = rocks[r%5]
-    # if r%1000==0:
-    #     print(r)
 
     #Space between current map and new rock
     addon = np.array([[1,0,0,0,0,0,0,0,1],
                       [1,0,0,0,0,0,0,0,1],
                       [1,0,0,0,0,0,0,0,1]])
-    if len(rock.shape) == 1:
-        width = rock.shape[0]
-        height = 1
-    else:
-        width = rock.shape[1]
-        height = rock.shape[0]
+    width = rock.shape[1]
+    height = rock.shape[0]
     
     #Piece of map with new rock
     rockaddon = np.array([[1,0,0,0,0,0,0,0,1] for _ in range(height)])
