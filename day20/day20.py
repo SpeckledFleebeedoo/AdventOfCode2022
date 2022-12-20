@@ -55,9 +55,6 @@ def part2(key, valuelist):
         pass
     calc_coordinates(valuelist, numvalues) 
 
-    
-
-
 with open("day20/inputtest.txt") as f:
     values = f.read().splitlines()
 
