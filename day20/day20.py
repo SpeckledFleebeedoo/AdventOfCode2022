@@ -61,4 +61,6 @@ with open("day20/inputtest.txt") as f:
 valuelist = [[int(value), i] for i, value in enumerate(values)]
 key = 811589153
 part1(valuelist)
-# part2(key, valuelist)
+# part2(key, valuelist)  
+
+#Use itertools.cycle?

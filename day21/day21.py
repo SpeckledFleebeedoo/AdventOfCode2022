@@ -83,14 +83,5 @@ def part2(monkeys):
         if added == 0:
             notallinequation = False
 
-    print(equation)
-    for i in range(20):
-        equation = re.sub(r"\(\d . \d\)", evalre, equation)
-    pass
-
-
-
-
-
-# part1(monkeys)
-part2(monkeys)
+part1(monkeys)
+# part2(monkeys)
