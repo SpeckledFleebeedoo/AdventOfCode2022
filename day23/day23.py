@@ -1,3 +1,5 @@
+from PIL import Image
+
 def check_surroundings(elf, elves):
     if ((elf[0]-1, elf[1]-1) not in elves and
         (elf[0]-1, elf[1]) not in elves and
@@ -42,6 +44,17 @@ def draw_map(elves, xmin, xmax, ymin, ymax):
     with open("day23/output.txt", "w+") as f:
         f.write(out)
 
+def draw_frame(elves, xmin, xmax, ymin, ymax):
+    xoffset = -xmin
+    yoffset = -ymin
+    frame = Image.new("RGB", (140, 130), "grey")
+    for y in range(ymin, ymax + 1):
+        for x in range(xmin, xmax):
+            if (y, x) in elves:
+                position  = (x+xoffset, y+yoffset)
+                frame.putpixel(position, (30, 255, 30))
+    return frame
+
 with open("day23/input.txt") as f:
     lines = f.read().splitlines()
 
@@ -59,7 +72,10 @@ xmin = min([elf[1] for elf in elves])
 xmax = max([elf[1] for elf in elves])
 ymin = min([elf[0] for elf in elves])
 ymax = max([elf[0] for elf in elves])
-draw_map(elves, xmin, xmax, ymin, ymax)
+# draw_map(elves, xmin, xmax, ymin, ymax)
+
+frames = []
+frames.append(draw_frame(elves, -15, 118, -12, 116))
 
 elvesmoved = True
 rounds = 0
@@ -99,7 +115,8 @@ while elvesmoved == True:
     ymin = min([elf[0] for elf in elves])
     ymax = max([elf[0] for elf in elves])
     if rounds%10 == 0 or elvesmoved == False:
-        draw_map(elves, xmin, xmax, ymin, ymax)
+        # draw_map(elves, xmin, xmax, ymin, ymax)
+        frames.append(draw_frame(elves, -15, 118, -12, 116))
         print(rounds)
 
     rounds += 1
@@ -108,5 +125,6 @@ while elvesmoved == True:
 # emptytiles = area - len(elves)
 # print(emptytiles)
 print(rounds)
+frames[0].save("day23/day23.gif", save_all = True, append_images=frames[1:])
 
 #Final result: 128*134
