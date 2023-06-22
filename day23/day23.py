@@ -47,7 +47,7 @@ def draw_map(elves, xmin, xmax, ymin, ymax):
 def draw_frame(elves, xmin, xmax, ymin, ymax):
     xoffset = -xmin
     yoffset = -ymin
-    frame = Image.new("RGB", (140, 130), "grey")
+    frame = Image.new("RGB", (140, 140), "grey")
     for y in range(ymin, ymax + 1):
         for x in range(xmin, xmax):
             if (y, x) in elves:
